@@ -33,3 +33,5 @@ generate html file
 launch the server
 
     make server
+
+![voici le rendu](https://raw.githubusercontent.com/foxmask/smcomm/master/smcomm.png)
