@@ -55,3 +55,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+website/content
+website/output
+website/Makefile
+website/develop_server.sh
+website/fabfile.py
+website/smcomm.db
