@@ -26,7 +26,7 @@ create the database by entering :
     python load_data.py
 
 
-update the date triggered column to be able to grab several data
+for the first execution, to cheat ;) update the date triggered column to be able to grab several data
 
     sqlite3 smcomm.db
     update feeds set date_triggered = '2014-01-01 18:00:00.0000';
