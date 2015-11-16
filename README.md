@@ -45,4 +45,6 @@ launch the server
 
     make server
 
+the result may look like this
+
 ![voici le rendu](https://raw.githubusercontent.com/foxmask/smcomm/master/smcomm.png)
