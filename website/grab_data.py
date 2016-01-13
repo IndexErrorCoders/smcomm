@@ -1,9 +1,10 @@
 # coding: utf-8
 from datetime import datetime
+import arrow
 import time
 
 import feedparser
-
+from slugify import slugify
 
 from models import Feeds
 
@@ -12,9 +13,6 @@ from pelicanconf import *
 
 
 def get_published(data):
-    """
-    get the published property
-    """
     published = datetime.strptime('1969-01-14 18:00:00.0000', '%Y-%m-%d %H:%M:%S.%f')
     if hasattr(data, 'published_parsed'):
         published = datetime.utcfromtimestamp(
@@ -26,9 +24,6 @@ def get_published(data):
 
 
 def to_publish(data, date_triggered):
-    """
-    check if you can publish or not
-    """
     published = get_published(data)
     if published >= date_triggered:
         return True
@@ -49,11 +44,13 @@ def get_header(feed_name, data):
     """
     # find one of the date  "published" or "updated"
     published = get_published(data)
+    slug_published = slugify(arrow.get(published).format('YYYY-MM-DD HH:mm'))
+    slug_title = slugify(data.title)
 
     header = '\n\t\t<meta name="date" content="{}" />\n'.format(published)
     header += '\t\t<meta name="category" content="{}" />\n'.format(feed_name)
     header += '\t\t<meta name="authors" content="{}" />\n'.format(AUTHOR)
-
+    header += '\t\t<meta name="slug" content="{}"/>\n'.format(slug_published + '-' + slug_title)
     header += '\t</head>'
 
     return header
@@ -113,6 +110,9 @@ def create_articles():
         create one article (a file in fact) for each
         feed we get
     """
+    my_date = datetime.strftime(datetime.now(), '%Y%m%d')
+    my_hour = datetime.strftime(datetime.now(), '%H%M')
+
     for feed in Feeds.select().where(Feeds.active == True):
 
         # Set the date if we never grab the data before

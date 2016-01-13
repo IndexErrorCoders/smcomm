@@ -62,3 +62,8 @@ website/Makefile
 website/develop_server.sh
 website/fabfile.py
 website/smcomm.db
+lib64
+pelican-plugins
+pyvenv.cfg
+pip-selfcheck.json
+bin/

@@ -1,3 +1,4 @@
+arrow==0.7.0
 feedparser==5.2.1
 peewee==2.6.4
 pelican==3.6.3
