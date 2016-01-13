@@ -1,0 +1,15 @@
+{% set _TWITTER_SHOW_FOLLOWER_COUNT = TWITTER_SHOW_FOLLOWER_COUNT|default(True)|string|lower %}
+{% set _TWITTER_SHOW_REPLIES = TWITTER_SHOW_REPLIES|default(False)|string|lower %}
+
+{% if TWITTER_USER %}
+<section>
+  {% if TWITTER_WIDGET_ID %}
+  <h1>Latest Tweets</h1>
+  <a class="twitter-timeline"  href="https://twitter.com/{{ TWITTER_USER }}" data-widget-id="{{ TWITTER_WIDGET_ID }}">Tweets from @ {{ TWITTER_USER }}</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  {% endif %}
+  {% if TWITTER_FOLLOW_BUTTON %}
+    <a href="http://twitter.com/{{ TWITTER_USER }}" class="twitter-follow-button" data-show-count="{{ _TWITTER_SHOW_FOLLOWER_COUNT }}">Follow @{{ TWITTER_USER }}</a>
+  {% endif %}
+</section>
+{% endif %}
