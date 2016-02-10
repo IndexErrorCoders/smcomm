@@ -6,7 +6,7 @@ AUTHOR = 'EachOfUs'
 SITENAME = "Sam & Max Board"
 SITESUBTITLE = "Suivez l'actu de la communauté"
 
-SITEURL = 'http://smcomm.trigger-happy.eu'
+SITEURL = 'https://smcomm.trigger-happy.eu'
 TIMEZONE = 'Europe/Paris'
 
 THEME = 'pelican-octopress-theme'
@@ -72,7 +72,7 @@ TWITTER_TWEET_COUNT = 3
 
 
 
-FEED_DOMAIN = 'http://smcomm.trigger-happy.eu'
+FEED_DOMAIN = 'https://smcomm.trigger-happy.eu'
 FEED_ATOM = 'main.atom.xml'
 FEED_RSS = 'main.rss.xml'
 

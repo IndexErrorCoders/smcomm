@@ -17,7 +17,7 @@ def get_published(data):
     if hasattr(data, 'published_parsed'):
         published = datetime.utcfromtimestamp(
             time.mktime(data.published_parsed))
-    elif hasattr(feeds, 'updated_parsed'):
+    elif hasattr(data, 'updated_parsed'):
         published = datetime.utcfromtimestamp(
             time.mktime(data.updated_parsed))
     return published
